@@ -11,6 +11,19 @@
     <!-- FUENTE CORPORATIVA REAL: Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <style>
+        @keyframes infinite-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+            animation: infinite-scroll 25s linear infinite;
+        }
+        .animate-infinite-scroll:hover {
+            animation-play-state: paused; /* Se pausa suavemente cuando el usuario pasa el mouse */
+        }
+    </style>
+
     <script>
         tailwind.config = {
             theme: {
@@ -122,33 +135,182 @@
         
         <!-- Imagen de Fondo y Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="./src/banner01.jpg" alt="FEMS PERU" class="w-full h-full object-cover object-center">
+            <img src="./src/banner01.jpg" alt="FEMS PERU" class="w-full h-full object-cover object-center ">
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0d14] via-[#0a0d14]/90 to-[#0a0d14]/70"></div>
         </div>
 
         <!-- Contenido Principal -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full py-16">
-            <div class="max-w-3xl text-left">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-12 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
                 
-                <p class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase mb-4">
-                    Servicios de Tecnología
-                </p>
+                <!-- Columna Texto Hero -->
+                <div class="lg:col-span-7 text-left">
+                    <p class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase mb-4">
+                        Servicios de Tecnología
+                    </p>
 
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-[1.12] tracking-tight mb-6">
-                    Desarrollo de <span class="text-green-400">Software</span> a Medida y Sitios <span class="text-green-400">Web</span>
-                </h1>
-                
-                <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-10 max-w-xl">
-                    Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar ventas en empresas del Perú.
-                </p>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-[1.12] tracking-tight mb-6">
+                        Desarrollo de <span class="text-green-400">Software </span> a Medida y Sitios <span class="text-green-400">Web</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-xl">
+                        Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar ventas en empresas del Perú.
+                    </p>
 
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="https://wa.me/51900000000" target="_blank" class="bg-white hover:bg-slate-200 text-slate-950 font-bold px-7 py-3.5 rounded-md transition-all text-sm">
-                        Solicitar Cotización
-                    </a>
-                    <a href="#servicios" class="bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/80 font-semibold px-7 py-3.5 rounded-md transition-all text-sm">
-                        Ver Servicios
-                    </a>
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-wrap items-center gap-4 mb-12">
+                        <a href="https://wa.me/51900000000" target="_blank" 
+                        class="bg-white hover:bg-slate-950 text-slate-950 hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-transparent hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                            Solicitar Cotización
+                        </a>    
+                        <a href="#servicios" class="bg-slate-900/80 text-light hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-1 hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                            Ver Servicios
+                        </a>
+                    </div>
+
+                    <!-- SCROLL HORIZONTAL INFINITO DE TECNOLOGÍAS (LOGOS MÁS GRANDES) -->
+                    <div class="pt-6 border-t border-slate-800/80 max-w-2xl">
+                        <p class="text-[11px] font-mono font-semibold tracking-widest text-slate-400 uppercase mb-5">
+                            TECNOLOGÍAS & HERRAMIENTAS DE DESARROLLO
+                        </p>
+
+                        <!-- Contenedor con degradado difuminado a los bordes -->
+                        <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_40px,_black_calc(100%-40px),transparent_100%)]">
+                            
+                            <!-- Track Continuo (Fila 1) -->
+                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10">
+                                
+                                <!-- PHP -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PHP">
+                                    <span class="text-sm font-bold font-mono">PHP</span>
+                                </div>
+
+                                <!-- Laravel -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Laravel">
+                                    <span class="text-sm font-bold font-mono">Laravel</span>
+                                </div>
+
+                                <!-- JavaScript -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="JavaScript">
+                                    <span class="text-sm font-bold font-mono">JavaScript</span>
+                                </div>
+
+                                <!-- React -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="React">
+                                    <span class="text-sm font-bold font-mono">React</span>
+                                </div>
+
+                                <!-- HTML5 -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HTML5">
+                                    <span class="text-sm font-bold font-mono">HTML5</span>
+                                </div>
+
+                                <!-- Tailwind CSS -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Tailwind">
+                                    <span class="text-sm font-bold font-mono">Tailwind</span>
+                                </div>
+
+                                <!-- PostgreSQL -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PostgreSQL">
+                                    <span class="text-sm font-bold font-mono">PostgreSQL</span>
+                                </div>
+
+                                <!-- MySQL -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="MySQL">
+                                    <span class="text-sm font-bold font-mono">MySQL</span>
+                                </div>
+
+                                <!-- Git -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Git">
+                                    <span class="text-sm font-bold font-mono">Git</span>
+                                </div>
+
+                                <!-- GitHub -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="GitHub">
+                                    <span class="text-sm font-bold font-mono">GitHub</span>
+                                </div>
+
+                                <!-- Vercel -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Vercel">
+                                    <span class="text-sm font-bold font-mono">Vercel</span>
+                                </div>
+
+                            </div>
+
+                            <!-- DUPLICADO EXACTO (Para el bucle continuo) -->
+                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10" aria-hidden="true">
+                                
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PHP">
+                                    <span class="text-sm font-bold font-mono">PHP</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Laravel">
+                                    <span class="text-sm font-bold font-mono">Laravel</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="JavaScript">
+                                    <span class="text-sm font-bold font-mono">JavaScript</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="React">
+                                    <span class="text-sm font-bold font-mono">React</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HTML5">
+                                    <span class="text-sm font-bold font-mono">HTML5</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Tailwind">
+                                    <span class="text-sm font-bold font-mono">Tailwind</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PostgreSQL">
+                                    <span class="text-sm font-bold font-mono">PostgreSQL</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="MySQL">
+                                    <span class="text-sm font-bold font-mono">MySQL</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Git">
+                                    <span class="text-sm font-bold font-mono">Git</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="GitHub">
+                                    <span class="text-sm font-bold font-mono">GitHub</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Vercel">
+                                    <span class="text-sm font-bold font-mono">Vercel</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
