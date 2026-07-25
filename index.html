@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEMS PERU | Desarrollo de Software & Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- FUENTE CORPORATIVA REAL: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0a0d14] text-white font-sans antialiased">
+
+    <!-- HEADER / NAV (Transparente) -->
+    <header class="absolute top-0 left-0 right-0 z-40 bg-transparent border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+            
+            <!-- Logo Centrado o a la Izquierda -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
+            </a>
+
+            <!-- Botón Menú Hamburguesa -->
+            <button id="open-menu-btn" aria-label="Abrir Menú" class="text-white hover:text-slate-300 p-2 focus:outline-none transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- MENÚ OVERLAY FULLSCREEN (Oculto por defecto) -->
+    <div id="full-menu" class="fixed inset-0 z-50 bg-[#0a0d14]/95 backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-12 transition-all duration-300">
+        
+        <!-- Header del Menú (Cerrar) -->
+        <div class="flex justify-between items-center max-w-7xl mx-auto w-full">
+            <img src="./src/logo03.png" alt="FEMS PERU" class="h-8 w-auto opacity-80">
+            
+            <button id="close-menu-btn" aria-label="Cerrar Menú" class="text-slate-400 hover:text-white transition-colors p-2 focus:outline-none">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Enlaces de Navegación -->
+        <nav class="max-w-3xl mx-auto w-full my-auto py-8">
+            <ul class="space-y-6 text-center sm:text-left font-bold tracking-wider">
+                
+                <li>
+                    <a href="index.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase">INICIO</a>
+                </li>
+
+                <!-- Desplegable SERVICIO -->
+                <li class="space-y-3">
+                    <button id="toggle-services-btn" class="w-full text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase flex items-center justify-center sm:justify-start gap-3 focus:outline-none">
+                        <span>SERVICIO</span>
+                        <svg id="arrow-icon" class="w-6 h-6 transform transition-transform duration-200 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Submenú de Servicios -->
+                    <ul id="services-submenu" class="hidden pl-0 sm:pl-6 space-y-2 border-l-0 sm:border-l-2 border-emerald-500/30 pt-2 font-medium">
+                        <li>
+                            <a href="software.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • SOFTWARE
+                            </a>
+                        </li>
+                        <li>
+                            <a href="hosting.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • HOSTING Y DOMINIO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="seguridad.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • SEGURIDAD
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="hardware.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">HARDWARE</a>
+                </li>
+
+                <li>
+                    <a href="nosotros.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">NOSOTROS</a>
+                </li>
+
+                <li>
+                    <a href="contacto.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">CONTACTO</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- Footer del Menú -->
+        <div class="max-w-7xl mx-auto w-full text-center sm:text-left text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-slate-900 pt-6">
+            <p>© FEMS PERU — Soluciones Tecnológicas</p>
+            <p class="text-emerald-400 font-medium">contacto@femsperu.com</p>
+        </div>
+
+    </div>
+
+
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-[#0A0D14]">
+        
+        <!-- Imagen de Fondo y Overlay -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="./src/banner01.jpg" alt="FEMS PERU" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0a0d14] via-[#0a0d14]/90 to-[#0a0d14]/70"></div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full py-16">
+            <div class="max-w-3xl text-left">
+                
+                <p class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase mb-4">
+                    Servicios de Tecnología
+                </p>
+
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-[1.12] tracking-tight mb-6">
+                    Desarrollo de <span class="text-green-400">Software</span> a Medida y Sitios Web
+                </h1>
+                
+                <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-10 max-w-xl">
+                    Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar ventas en empresas del Perú.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="https://wa.me/51900000000" target="_blank" class="bg-white hover:bg-slate-200 text-slate-950 font-bold px-7 py-3.5 rounded-md transition-all text-sm">
+                        Solicitar Cotización
+                    </a>
+                    <a href="#servicios" class="bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/80 font-semibold px-7 py-3.5 rounded-md transition-all text-sm">
+                        Ver Servicios
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN QUÉ OFRECEMOS Y FORMULARIO ACOPLADO -->
+    <section class="relative bg-white text-slate-900 pb-20 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- COLUMNA IZQUIERDA: ¿Qué ofrecemos? -->
+                <div class="lg:col-span-7 pt-16">
+                    
+                    <div class="mb-12">
+                        <p class="text-xs font-bold tracking-widest text-emerald-600 uppercase mb-2">
+                            Soluciones Tecnológicas Integrales
+                        </p>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                            ¿Qué Ofrecemos en FEMS PERU?
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Software a Medida</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Desarrollo de sistemas informáticos, ERP/CRM y automatización de procesos operativos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Desarrollo Web</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Páginas web corporativas, tiendas virtuales e interfaces modernas diseñadas para vender.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Servidores & Cloud</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Servidores dedicados, hosting corporativo de alta velocidad y correos empresariales.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Seguridad & CCTV</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Instalación profesional de cámaras de seguridad, redes e infraestructura técnica.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- COLUMNA DERECHA: Pestaña Verde Delgada + Formulario Compacto -->
+                <div class="lg:col-span-5 relative z-30 lg:-mt-14">
+                    
+                    <div class="shadow-2xl rounded-2xl overflow-hidden border border-slate-100 bg-white">
+                        
+                        <!-- Pestaña Verde Compacta (Solo 56px de alto, delgada y elegante) -->
+                        <div class="bg-emerald-500 text-slate-950 px-6 py-4 flex items-center justify-between">
+                            <span class="text-sm font-extrabold uppercase tracking-wider">Solicita tu Demo</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+
+                        <!-- Formulario Compacto y Limpio -->
+                        <form action="#" method="POST" class="p-6 space-y-3.5">
+                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de tus sistemas o web.</p>
+                            
+                            <div>
+                                <input type="text" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
+
+                            <div>
+                                <input type="text" required placeholder="Correo o WhatsApp (+51...)" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
+
+                            <div>
+                                <select class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                    <option value="" disabled selected>Servicio de interés</option>
+                                    <option value="software">Software a Medida / ERP</option>
+                                    <option value="web">Página Web Corporativa</option>
+                                    <option value="hosting">Servidores / Hosting</option>
+                                    <option value="seguridad">Seguridad & Cámaras CCTV</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <textarea rows="2" placeholder="Detalle breve de tu requerimiento..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
+                                Enviar Solicitud
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT DEL MENÚ HAMBURGUESA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const fullMenu = document.getElementById('full-menu');
+            
+            const toggleServicesBtn = document.getElementById('toggle-services-btn');
+            const servicesSubmenu = document.getElementById('services-submenu');
+            const arrowIcon = document.getElementById('arrow-icon');
+
+            // Abrir el Menú Fullscreen
+            if (openMenuBtn && fullMenu) {
+                openMenuBtn.addEventListener('click', () => {
+                    fullMenu.classList.remove('hidden');
+                    fullMenu.classList.add('flex');
+                    document.body.style.overflow = 'hidden'; // Evita el scroll de fondo
+                });
+            }
+
+            // Cerrar el Menú Fullscreen
+            if (closeMenuBtn && fullMenu) {
+                closeMenuBtn.addEventListener('click', () => {
+                    fullMenu.classList.add('hidden');
+                    fullMenu.classList.remove('flex');
+                    document.body.style.overflow = 'auto'; // Restablece el scroll
+                });
+            }
+
+            // Desplegar / Colapsar el submenú de SERVICIO
+            if (toggleServicesBtn && servicesSubmenu && arrowIcon) {
+                toggleServicesBtn.addEventListener('click', () => {
+                    servicesSubmenu.classList.toggle('hidden');
+                    arrowIcon.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
