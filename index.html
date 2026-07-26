@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEMS PERU | Desarrollo de Software & Web</title>
+    <title>FEMS PERU | Desarrollo de Software y Web</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- FUENTE CORPORATIVA REAL: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
         @keyframes infinite-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
+
         .animate-infinite-scroll {
             animation: infinite-scroll 25s linear infinite;
         }
+
         .animate-infinite-scroll:hover {
-            animation-play-state: paused; /* Se pausa suavemente cuando el usuario pasa el mouse */
+            animation-play-state: paused;
+            /* Se pausa suavemente cuando el usuario pasa el mouse */
         }
     </style>
 
@@ -34,21 +44,23 @@
         }
     </script>
 </head>
+
 <body class="bg-[#0a0d14] text-white font-sans antialiased">
 
     <!-- HEADER / NAV (Transparente) -->
     <header class="absolute top-0 left-0 right-0 z-40 bg-transparent border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
-            
+
             <!-- Logo Centrado o a la Izquierda -->
             <a href="index.html" class="flex items-center gap-2">
                 <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
             </a>
 
             <!-- Botón Menú Hamburguesa -->
-            <button id="open-menu-btn" aria-label="Abrir Menú" class="text-white hover:text-slate-300 p-2 focus:outline-none transition-colors">
+            <button id="open-menu-btn" aria-label="Abrir Menú"
+                class="text-white hover:text-slate-300 p-2 focus:outline-none transition-colors">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
 
@@ -56,15 +68,17 @@
     </header>
 
     <!-- MENÚ OVERLAY FULLSCREEN (Oculto por defecto) -->
-    <div id="full-menu" class="fixed inset-0 z-50 bg-[#0a0d14]/95 backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-12 transition-all duration-300">
-        
+    <div id="full-menu"
+        class="fixed inset-0 z-50 bg-[#0a0d14]/95 backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-12 transition-all duration-300">
+
         <!-- Header del Menú (Cerrar) -->
         <div class="flex justify-between items-center max-w-7xl mx-auto w-full">
-            <img src="./src/logo03.png" alt="FEMS PERU" class="h-8 w-auto opacity-80">
-            
-            <button id="close-menu-btn" aria-label="Cerrar Menú" class="text-slate-400 hover:text-white transition-colors p-2 focus:outline-none">
+            <!--<img src="./src/logo03.png" alt="FEMS PERU" class="h-8 w-auto opacity-80">-->
+
+            <button id="close-menu-btn" aria-label="Cerrar Menú"
+                class="text-slate-400 hover:text-white transition-colors p-2 focus:outline-none">
                 <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
@@ -72,34 +86,42 @@
         <!-- Enlaces de Navegación -->
         <nav class="max-w-3xl mx-auto w-full my-auto py-8">
             <ul class="space-y-6 text-center sm:text-left font-bold tracking-wider">
-                
+
                 <li>
-                    <a href="index.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase">INICIO</a>
+                    <a href="index.html"
+                        class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase">INICIO</a>
                 </li>
 
                 <!-- Desplegable SERVICIO -->
                 <li class="space-y-3">
-                    <button id="toggle-services-btn" class="w-full text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase flex items-center justify-center sm:justify-start gap-3 focus:outline-none">
+                    <button id="toggle-services-btn"
+                        class="w-full text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase flex items-center justify-center sm:justify-start gap-3 focus:outline-none">
                         <span>SERVICIO</span>
-                        <svg id="arrow-icon" class="w-6 h-6 transform transition-transform duration-200 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        <svg id="arrow-icon"
+                            class="w-6 h-6 transform transition-transform duration-200 text-emerald-400" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    
+
                     <!-- Submenú de Servicios -->
-                    <ul id="services-submenu" class="hidden pl-0 sm:pl-6 space-y-2 border-l-0 sm:border-l-2 border-emerald-500/30 pt-2 font-medium">
+                    <ul id="services-submenu"
+                        class="hidden pl-0 sm:pl-6 space-y-2 border-l-0 sm:border-l-2 border-emerald-500/30 pt-2 font-medium">
                         <li>
-                            <a href="software.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                            <a href="software.html"
+                                class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
                                 • SOFTWARE
                             </a>
                         </li>
                         <li>
-                            <a href="hosting.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                            <a href="hosting.html"
+                                class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
                                 • HOSTING Y DOMINIO
                             </a>
                         </li>
                         <li>
-                            <a href="seguridad.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                            <a href="seguridad.html"
+                                class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
                                 • SEGURIDAD
                             </a>
                         </li>
@@ -107,22 +129,26 @@
                 </li>
 
                 <li>
-                    <a href="hardware.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">HARDWARE</a>
+                    <a href="hardware.html"
+                        class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">HARDWARE</a>
                 </li>
 
                 <li>
-                    <a href="nosotros.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">NOSOTROS</a>
+                    <a href="nosotros.html"
+                        class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">NOSOTROS</a>
                 </li>
 
                 <li>
-                    <a href="contacto.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">CONTACTO</a>
+                    <a href="contacto.html"
+                        class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">CONTACTO</a>
                 </li>
 
             </ul>
         </nav>
 
         <!-- Footer del Menú -->
-        <div class="max-w-7xl mx-auto w-full text-center sm:text-left text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-slate-900 pt-6">
+        <div
+            class="max-w-7xl mx-auto w-full text-center sm:text-left text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-slate-900 pt-6">
             <p>© FEMS PERU — Soluciones Tecnológicas</p>
             <p class="text-emerald-400 font-medium">contacto@femsperu.com</p>
         </div>
@@ -132,7 +158,7 @@
 
     <!-- BANNER PRINCIPAL (HERO) -->
     <section class="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-[#0A0D14]">
-        
+
         <!-- Imagen de Fondo y Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="./src/banner01.jpg" alt="FEMS PERU" class="w-full h-full object-cover object-center ">
@@ -142,7 +168,7 @@
         <!-- Contenido Principal -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-12 pb-16">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                
+
                 <!-- Columna Texto Hero -->
                 <div class="lg:col-span-7 text-left">
                     <p class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase mb-4">
@@ -150,20 +176,23 @@
                     </p>
 
                     <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-[1.12] tracking-tight mb-6">
-                        Desarrollo de <span class="text-green-400">Software </span> a Medida y Sitios <span class="text-green-400">Web</span>
+                        Desarrollo de <span class="text-green-400">Software </span> a Medida y Sitios <span
+                            class="text-green-400">Web</span>
                     </h1>
-                    
+
                     <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-xl">
-                        Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar ventas en empresas del Perú.
+                        Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar
+                        ventas en empresas del Perú.
                     </p>
 
                     <!-- Botones de Acción -->
                     <div class="flex flex-wrap items-center gap-4 mb-12">
-                        <a href="https://wa.me/51900000000" target="_blank" 
-                        class="bg-white hover:bg-slate-950 text-slate-950 hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-transparent hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                        <a href="https://wa.me/51900000000" target="_blank"
+                            class="bg-white hover:bg-slate-950 text-slate-950 hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-transparent hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
                             Solicitar Cotización
-                        </a>    
-                        <a href="#servicios" class="bg-slate-900/80 text-light hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-1 hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                        </a>
+                        <a href="#servicios"
+                            class="bg-slate-900/80 text-light hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-1 hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
                             Ver Servicios
                         </a>
                     </div>
@@ -175,134 +204,202 @@
                         </p>
 
                         <!-- Contenedor con degradado difuminado a los bordes -->
-                        <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_40px,_black_calc(100%-40px),transparent_100%)]">
-                            
+                        <div
+                            class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_40px,_black_calc(100%-40px),transparent_100%)]">
+
                             <!-- Track Continuo (Fila 1) -->
                             <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10">
-                                
+
                                 <!-- PHP -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PHP">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg"
+                                        class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="PHP">
                                     <span class="text-sm font-bold font-mono">PHP</span>
                                 </div>
 
                                 <!-- Laravel -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Laravel">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Laravel">
                                     <span class="text-sm font-bold font-mono">Laravel</span>
                                 </div>
 
                                 <!-- JavaScript -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="JavaScript">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="JavaScript">
                                     <span class="text-sm font-bold font-mono">JavaScript</span>
                                 </div>
 
                                 <!-- React -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="React">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="React">
                                     <span class="text-sm font-bold font-mono">React</span>
                                 </div>
 
                                 <!-- HTML5 -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HTML5">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="HTML5">
                                     <span class="text-sm font-bold font-mono">HTML5</span>
                                 </div>
 
                                 <!-- Tailwind CSS -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Tailwind">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Tailwind">
                                     <span class="text-sm font-bold font-mono">Tailwind</span>
                                 </div>
 
                                 <!-- PostgreSQL -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PostgreSQL">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="PostgreSQL">
                                     <span class="text-sm font-bold font-mono">PostgreSQL</span>
                                 </div>
 
                                 <!-- MySQL -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="MySQL">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg"
+                                        class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="MySQL">
                                     <span class="text-sm font-bold font-mono">MySQL</span>
                                 </div>
 
                                 <!-- Git -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Git">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Git">
                                     <span class="text-sm font-bold font-mono">Git</span>
                                 </div>
 
                                 <!-- GitHub -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="GitHub">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="GitHub">
                                     <span class="text-sm font-bold font-mono">GitHub</span>
                                 </div>
 
                                 <!-- Vercel -->
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Vercel">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Vercel">
                                     <span class="text-sm font-bold font-mono">Vercel</span>
                                 </div>
 
                             </div>
 
                             <!-- DUPLICADO EXACTO (Para el bucle continuo) -->
-                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10" aria-hidden="true">
-                                
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PHP">
+                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10"
+                                aria-hidden="true">
+
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/php.svg"
+                                        class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="PHP">
                                     <span class="text-sm font-bold font-mono">PHP</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Laravel">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Laravel">
                                     <span class="text-sm font-bold font-mono">Laravel</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="JavaScript">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="JavaScript">
                                     <span class="text-sm font-bold font-mono">JavaScript</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="React">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="React">
                                     <span class="text-sm font-bold font-mono">React</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HTML5">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="HTML5">
                                     <span class="text-sm font-bold font-mono">HTML5</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Tailwind">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Tailwind">
                                     <span class="text-sm font-bold font-mono">Tailwind</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="PostgreSQL">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="PostgreSQL">
                                     <span class="text-sm font-bold font-mono">PostgreSQL</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="MySQL">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg"
+                                        class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="MySQL">
                                     <span class="text-sm font-bold font-mono">MySQL</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Git">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Git">
                                     <span class="text-sm font-bold font-mono">Git</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="GitHub">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="GitHub">
                                     <span class="text-sm font-bold font-mono">GitHub</span>
                                 </div>
 
-                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
-                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Vercel">
+                                <div
+                                    class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg"
+                                        class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                                        alt="Vercel">
                                     <span class="text-sm font-bold font-mono">Vercel</span>
                                 </div>
                             </div>
@@ -318,10 +415,10 @@
     <section class="relative bg-white text-slate-900 pb-20 px-6 lg:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
+
                 <!-- COLUMNA IZQUIERDA: ¿Qué ofrecemos? -->
                 <div class="lg:col-span-7 pt-16">
-                    
+
                     <div class="mb-12">
                         <p class="text-xs font-bold tracking-widest text-emerald-600 uppercase mb-2">
                             Soluciones Tecnológicas Integrales
@@ -332,10 +429,14 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        
+
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            <div
+                                class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold text-slate-900 mb-1">Software a Medida</h3>
@@ -346,20 +447,29 @@
                         </div>
 
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                            <div
+                                class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold text-slate-900 mb-1">Desarrollo Web</h3>
                                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                    Páginas web corporativas, tiendas virtuales e interfaces modernas diseñadas para vender.
+                                    Páginas web corporativas, tiendas virtuales e interfaces modernas diseñadas para
+                                    vender.
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>
+                            <div
+                                class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+                                </svg>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold text-slate-900 mb-1">Hosting y Dominios</h3>
@@ -370,8 +480,12 @@
                         </div>
 
                         <div class="flex gap-4">
-                            <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            <div
+                                class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold text-slate-900 mb-1">Seguridad y CCTV</h3>
@@ -387,42 +501,56 @@
 
                 <!-- COLUMNA DERECHA: Pestaña Verde Delgada + Formulario Compacto -->
                 <div class="lg:col-span-5 relative z-30 lg:-mt-14">
-                    
+
                     <div class="shadow-2xl rounded-2xl overflow-hidden border border-slate-100 bg-white">
-                        
+
                         <!-- Pestaña Verde Compacta (Solo 56px de alto, delgada y elegante) -->
-                        <div class="bg-emerald-500 text-slate-950 px-6 py-4 flex items-center justify-between" style="padding-bottom: 4%;">
+                        <div class="bg-emerald-500 text-slate-950 px-6 py-4 flex items-center justify-between"
+                            style="padding-bottom: 4%;">
                             <span class="text-sm font-extrabold uppercase tracking-wider ">Solicita tu Demo</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
                         </div>
 
                         <!-- Formulario Compacto y Limpio -->
                         <form action="#" method="POST" class="p-6 space-y-3.5">
-                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de tus sistemas o web.</p>
-                            
+                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de
+                                tus sistemas o web.</p>
+
                             <div>
-                                <input type="text" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <input type="text" required placeholder="Nombre completo"
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                             </div>
 
                             <div>
-                                <input type="text" required placeholder="Correo o WhatsApp (+51...)" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <input type="text" required placeholder="WhatsApp"
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" required placeholder="Correo "
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                             </div>
 
                             <div>
-                                <select class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <select
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                                     <option value="" disabled selected>Servicio de interés</option>
-                                    <option value="software">Software a Medida / ERP</option>
+                                    <option value="software">Software a Medida</option>
                                     <option value="web">Página Web Corporativa</option>
                                     <option value="hosting">Servidores / Hosting</option>
-                                    <option value="seguridad">Seguridad & Cámaras CCTV</option>
+                                    <option value="seguridad">Seguridad y Cámaras CCTV</option>
                                 </select>
                             </div>
 
                             <div>
-                                <textarea rows="2" placeholder="Detalle breve de tu requerimiento..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
+                                <textarea rows="2" placeholder="Detalle breve de tu requerimiento..."
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
+                            <button type="submit"
+                                class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
                                 Enviar Solicitud
                             </button>
 
@@ -438,84 +566,185 @@
 
     <!-- SECCIÓN DE DEMOSTRACIÓN DE PROYECTO (SISTEMA REAL) -->
     <section class="relative bg-[#0A0D14] text-white pt-20 pb-36 px-6 lg:px-12 overflow-hidden">
-        
+
         <!-- Fondo con patrón de servidor / datos -->
         <div class="absolute inset-0 z-0 pointer-events-none opacity-20">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80" 
-                alt="FEMS PERU Platform" 
-                class="w-full h-full object-cover object-center">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80"
+                alt="FEMS PERU Platform" class="w-full h-full object-cover object-center">
             <div class="absolute inset-0 bg-gradient-to-b from-[#0A0D14] via-[#0A0D14]/80 to-[#0A0D14]"></div>
         </div>
 
-        <!-- Contenido Superior Centrado -->
-        <div class="relative z-10 max-w-4xl mx-auto text-center mb-12">
-            
-            <!-- Tag Superior -->
-            <p class="text-xs font-semibold tracking-[0.2em] text-emerald-400 uppercase mb-3">
-                Caso de Éxito
-            </p>
+        <!-- SECCIÓN DEMO DEL SISTEMA TI CON VIDEO Y CARACTERÍSTICAS -->
+        <section class="relative bg-[#0a0d14] text-white py-20 px-6 lg:px-12 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto">
 
-            <!-- Título Principal -->
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                Sistema de Gestión TI, Mantenimiento y Control Kanban
-            </h2>
+                <!-- ENCABEZADO DE LA SECCIÓN -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold tracking-[0.25em] text-emerald-400 uppercase">CASO DE
+                        ÉXITO</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-3 mb-6">
+                        Sistema de Gestión y Control de Activos TI
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        La solución integral de <strong class="text-emerald-400 font-semibold">FEMS PERÚ</strong> para
+                        centralizar, controlar y auditar todo el departamento de tecnología de tu empresa.
+                    </p>
+                </div>
 
-            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-                Plataforma centralizada para el registro de inventario tecnológico, programación de mantenimientos preventivos, control de backups y seguimiento de tareas en tiempo real.
-            </p>
+                <!-- REPRODUCTOR DE VIDEO EMBEBIDO DE YOUTUBE -->
+                <div class="max-w-5xl mx-auto mb-20">
+                    <div
+                        class="relative w-full rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(16,185,129,0.15)] bg-slate-900 aspect-video">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/FxvhfQMyYtU?rel=0"
+                            title="SISTEMA DE SOPORTE TI - FEMS PERU" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
 
-        </div>
+                <!-- MÓDULOS Y FUNCIONALIDADES DEL SISTEMA (GRID) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
-        <!-- TARJETA DE DEMOSTRACIÓN DEL SISTEMA -->
-        <div class="relative z-20 max-w-5xl mx-auto -mb-64">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer aspect-video bg-slate-900">
-                
-                <!-- Captura/Mockup del Sistema de TI (Kanban / Dashboard) -->
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80" 
-                    alt="Sistema de Soporte TI - FEMS PERU" 
-                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80">
-                
-                <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-colors"></div>
-
-                <!-- Botón de Play / Ver Demo Interactive -->
-                <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <div class="relative flex items-center justify-center">
-                        
-                        <!-- Anillos de Pulso Verde -->
-                        <span class="absolute inline-flex h-24 w-24 rounded-full bg-emerald-500/30 animate-ping"></span>
-                        <span class="absolute inline-flex h-20 w-20 rounded-full bg-emerald-500/20"></span>
-
-                        <!-- Icono Play -->
-                        <div class="relative w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500 rounded-full flex items-center justify-center text-slate-950 shadow-xl group-hover:bg-emerald-400 group-hover:scale-110 transition-all">
-                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                    <!-- Módulo 1 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            📦
                         </div>
-
+                        <h3 class="text-lg font-bold text-white mb-2">1. Control de Inventarios y Trazabilidad (Kardex)
+                        </h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Gestión de Stock:</strong> Registro detallado de equipos,
+                                periféricos e insumos por marca, modelo y SKU.</li>
+                            <li><strong class="text-slate-200">Trazabilidad en tiempo real:</strong> Historial detallado
+                                de ingresos (compras) y salidas (asignaciones).</li>
+                            <li><strong class="text-slate-200">Clasificación por estados:</strong> Control claro de
+                                equipos Operativos, Dañados y En Reparación.</li>
+                        </ul>
                     </div>
 
-                    <span class="bg-slate-950/80 border border-white/10 text-slate-200 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-md">
-                        Ver Demo del Sistema
-                    </span>
+                    <!-- Módulo 2 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            👤
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">2. Control de Personal y Asignaciones</h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Registro de colaboradores y áreas:</strong> Asigna
+                                laptops y activos directamente al personal responsable.</li>
+                            <li><strong class="text-slate-200">Responsabilidad de activos:</strong> Historial de
+                                entregas y devoluciones de equipos en planta o corporativo.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            🛠️
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">3. Mantenimiento Preventivo y Correctivo</h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Órdenes de trabajo:</strong> Registro de ingreso de
+                                equipos al laboratorio técnico o taller externo.</li>
+                            <li><strong class="text-slate-200">Seguimiento de fallas:</strong> Historial de repuestos y
+                                reparaciones efectuadas.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 4 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            💾
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">4. Gestión de Respaldos (Backups)</h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Control de copias de seguridad:</strong> Monitoreo y
+                                programación de respaldos de servidores y ordenadores.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 5 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            📋
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">5. Tablero de Tareas TI (Kanban)</h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Gestión de solicitudes:</strong> Organización visual de
+                                tickets y tareas pendientes del equipo de soporte.</li>
+                            <li><strong class="text-slate-200">Priorización:</strong> Seguimiento de proyectos y tiempos
+                                de atención del área técnica.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 6 -->
+                    <div
+                        class="bg-slate-900/60 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 text-2xl">
+                            📊
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">6. Reportes y Exportación</h3>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 leading-relaxed">
+                            <li><strong class="text-slate-200">Informes ejecutivos:</strong> Generación e impresión de
+                                reportes listos en PDF para auditorías internas.</li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <!-- Badges Técnicos en la Esquina Inferior -->
-                <div class="absolute bottom-4 left-4 hidden sm:flex items-center gap-2 z-10">
-                    <span class="bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded">
-                        MODULE: KANBAN
-                    </span>
-                    <span class="bg-slate-800/80 border border-slate-700 text-slate-300 text-[10px] font-mono font-bold px-2.5 py-1 rounded backdrop-blur-md">
-                        BACKUPS Y LOGS
-                    </span>
+                <!-- BLOQUE LIME / EMERALD: ¿POR QUÉ ELEGIR NUESTRO SISTEMA? -->
+                <div
+                    class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-emerald-950/40 border border-emerald-500/30 rounded-2xl p-8 sm:p-10 text-center max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-extrabold text-white mb-6 flex items-center justify-center gap-2">
+                        <span>🌟</span> ¿Por qué elegir nuestro sistema?
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-emerald-400 uppercase">Acceso 100% Web</h4>
+                            <p class="text-xs text-slate-300">Consulta tu información en tiempo real desde cualquier
+                                dispositivo o ubicación.</p>
+                        </div>
+
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-emerald-400 uppercase">Interfaz Intuitiva</h4>
+                            <p class="text-xs text-slate-300">Cero curva de aprendizaje para la rápida adaptación de tu
+                                equipo de trabajo.</p>
+                        </div>
+
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-bold text-emerald-400 uppercase">Personalizable</h4>
+                            <p class="text-xs text-slate-300">Adaptamos los módulos y reportes según el flujo de trabajo
+                                de tu empresa.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-800">
+                        <a href="https://wa.me/51900000000" target="_blank"
+                            class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold uppercase px-8 py-3.5 rounded-md text-xs tracking-wider transition-all shadow-lg hover:shadow-[0_0_25px_rgba(52,211,153,0.4)]">
+                            Solicitar Demo en Vivo
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
     <!-- SECCIÓN NUESTROS SERVICIOS -->
     <section id="servicios" class="relative bg-slate-50 text-slate-900 py-24 px-6 lg:px-12 border-t border-slate-200">
         <div class="max-w-7xl mx-auto">
-            
+
             <!-- Encabezado de Sección -->
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <p class="text-xs font-bold tracking-[0.2em] text-emerald-600 uppercase mb-3">
@@ -525,29 +754,35 @@
                     Nuestros Servicios
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-4">
-                    Diseñamos e implementamos soluciones digitales orientadas a optimizar operaciones, proteger infraestructura y escalar las ventas de tu negocio.
+                    Diseñamos e implementamos soluciones digitales orientadas a optimizar operaciones, proteger
+                    infraestructura y escalar las ventas de tu negocio.
                 </p>
             </div>
 
             <!-- GRILLA DE 3 TARJETAS DE SERVICIO -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
+
                 <!-- TARJETA 1: SOFTWARE A MEDIDA & SISTEMAS -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
+                <div
+                    class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <!-- Icono / Badge -->
-                        <div class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
 
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                        <h3
+                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
                             Desarrollo de Software y Web
                         </h3>
 
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Construcción de sistemas a medida, automatización de procesos y páginas web corporativas optimizadas para captación de clientes.
+                            Construcción de sistemas a medida, automatización de procesos y páginas web corporativas
+                            optimizadas para captación de clientes.
                         </p>
 
                         <!-- Lista de Características -->
@@ -568,30 +803,38 @@
                     </div>
 
                     <!-- Enlace Interno -->
-                    <a href="software.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
+                    <a href="software.html"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
                         <span>Saber más</span>
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </a>
                 </div>
 
                 <!-- TARJETA 2: HOSTING, SERVIDORES & CLOUD -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
+                <div
+                    class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <!-- Icono / Badge -->
-                        <div class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
                             </svg>
                         </div>
 
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                        <h3
+                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
                             Hosting y Servidores Dedicados (VPS)
                         </h3>
 
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Infraestructura cloud de alta disponibilidad, alquiler de servidores dedicados, configuración de correos corporativos y copias de seguridad continuas.
+                            Infraestructura cloud de alta disponibilidad, alquiler de servidores dedicados,
+                            configuración de correos corporativos y copias de seguridad continuas.
                         </p>
 
                         <!-- Lista de Características -->
@@ -612,30 +855,38 @@
                     </div>
 
                     <!-- Enlace Interno -->
-                    <a href="hosting.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
+                    <a href="hosting.html"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
                         <span>Saber más</span>
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </a>
                 </div>
 
                 <!-- TARJETA 3: SEGURIDAD, CÁMARAS CCTV & HARDWARE -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
+                <div
+                    class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-md hover:shadow-[0_10px_30px_rgba(52,211,153,0.15)] hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <!-- Icono / Badge -->
-                        <div class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                         </div>
 
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                        <h3
+                            class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">
                             Seguridad y Equipamiento TI
                         </h3>
 
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Instalación y mantenimiento de sistemas de videovigilancia CCTV, cableado estructurado, equipamiento informático y soporte técnico preventivo.
+                            Instalación y mantenimiento de sistemas de videovigilancia CCTV, cableado estructurado,
+                            equipamiento informático y soporte técnico preventivo.
                         </p>
 
                         <!-- Lista de Características -->
@@ -656,10 +907,13 @@
                     </div>
 
                     <!-- Enlace Interno -->
-                    <a href="seguridad.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
+                    <a href="seguridad.html"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider group-hover:text-emerald-600 transition-colors">
                         <span>Saber más</span>
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </a>
                 </div>
@@ -672,28 +926,41 @@
     <!-- FOOTER CORPORATIVO -->
     <footer class="bg-[#0A0D14] text-slate-400 text-sm border-t border-slate-800/80 pt-16 pb-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
+
             <!-- PARTE SUPERIOR: 4 Columnas principales -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
-                
+
                 <!-- Columna 1: Branding y Descripción (Ocupa 2 espacios en escritorio) -->
                 <div class="lg:col-span-2 space-y-4">
                     <a href="index.html" class="inline-block">
                         <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
                     </a>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-                        FEMS PERU — Empresa especializada en ingeniería de software a medida, desarrollo web corporativo, servidores cloud y sistemas de seguridad TI para negocios en el Perú.
+                        FEMS PERU — Empresa especializada en ingeniería de software a medida, desarrollo web
+                        corporativo, servidores cloud y sistemas de seguridad TI para negocios en el Perú.
                     </p>
                     <!-- Redes Sociales / Contacto Rápido -->
                     <div class="flex items-center gap-3 pt-2">
-                        <a href="https://wa.me/51900000000" target="_blank" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        <a href="https://wa.me/51900000000" target="_blank" aria-label="WhatsApp"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+                            </svg>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
                         </a>
-                        <a href="mailto:contacto@femsperu.com" aria-label="Email" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <a href="mailto:contacto@femsperu.com" aria-label="Email"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -714,11 +981,16 @@
                 <div>
                     <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Soluciones</h4>
                     <ul class="space-y-2.5 text-xs">
-                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Software a Medida</a></li>
-                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Desarrollo Web & ERP</a></li>
-                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Hosting & Servidores</a></li>
-                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Correos Corporativos</a></li>
-                        <li><a href="seguridad.html" class="hover:text-emerald-400 transition-colors">Seguridad & CCTV</a></li>
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Software a
+                                Medida</a></li>
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Desarrollo Web &
+                                ERP</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Hosting &
+                                Servidores</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Correos
+                                Corporativos</a></li>
+                        <li><a href="seguridad.html" class="hover:text-emerald-400 transition-colors">Seguridad &
+                                CCTV</a></li>
                     </ul>
                 </div>
 
@@ -727,15 +999,30 @@
                     <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Atención & Sede</h4>
                     <ul class="space-y-3 text-xs">
                         <li class="flex items-start gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
                             <span>Lima, Perú</span>
                         </li>
                         <li class="flex items-center gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:contacto@femsperu.com" class="hover:text-emerald-400 transition-colors">contacto@femsperu.com</a>
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:contacto@femsperu.com"
+                                class="hover:text-emerald-400 transition-colors">contacto@femsperu.com</a>
                         </li>
                         <li class="flex items-center gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             <span>Lun - Vie: 8:30 AM - 6:00 PM</span>
                         </li>
                     </ul>
@@ -761,7 +1048,7 @@
             const openMenuBtn = document.getElementById('open-menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
             const fullMenu = document.getElementById('full-menu');
-            
+
             const toggleServicesBtn = document.getElementById('toggle-services-btn');
             const servicesSubmenu = document.getElementById('services-submenu');
             const arrowIcon = document.getElementById('arrow-icon');
@@ -794,4 +1081,5 @@
         });
     </script>
 </body>
+
 </html>
