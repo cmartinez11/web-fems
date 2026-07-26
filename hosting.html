@@ -75,13 +75,15 @@
     </div>
 
     <!-- HERO DE HOSTING -->
-    <section class="relative min-h-[65vh] flex items-center overflow-hidden pt-24 pb-16 bg-[#0A0D14]">
+    <section class="relative min-h-[85vh] flex flex-col justify-between overflow-hidden pt-28 pb-0 bg-[#0A0D14]">
+        <!-- Imagen de Fondo Y Overlay -->
         <div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="./src/banner01.jpg" alt="FEMS PERU Hosting" class="w-full h-full object-cover opacity-20">
+            <img src="./src/banner03.jpg" alt="FEMS PERU Hosting" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0d14] via-[#0a0d14]/90 to-[#0a0d14]/70"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <!-- Contenido Principal del Hero -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full my-auto pb-12">
             <div class="max-w-3xl text-left">
                 <p class="text-xs font-semibold tracking-[0.25em] text-emerald-400 uppercase mb-4">
                     Servidores LiteSpeed Y Discos SSD NVMe
@@ -95,6 +97,53 @@
                 <a href="#planes" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-8 py-4 rounded-md transition-all duration-300 text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20">
                     Ver Planes De Hosting
                 </a>
+            </div>
+        </div>
+
+        <!-- CINTA INFERIOR DE CARACTERÍSTICAS (Sella el banner y suaviza la transición) -->
+        <div class="relative z-10 w-full border-t border-slate-800/80 bg-slate-950/60 backdrop-blur-md py-6 px-6 lg:px-12">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white uppercase">99.9% Uptime</h4>
+                        <p class="text-[11px] text-slate-400">Disponibilidad garantizada</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white uppercase">SSL Gratuito</h4>
+                        <p class="text-[11px] text-slate-400">Seguridad HTTPS incluida</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white uppercase">Respaldos Diarios</h4>
+                        <p class="text-[11px] text-slate-400">Copias de seguridad automáticas</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white uppercase">Soporte Local</h4>
+                        <p class="text-[11px] text-slate-400">Atención técnica en Perú</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
