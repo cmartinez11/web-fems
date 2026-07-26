@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEMS PERU | Hardware y Equipamiento TI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- FUENTE CORPORATIVA REAL: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        @keyframes infinite-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+            animation: infinite-scroll 25s linear infinite;
+        }
+        .animate-infinite-scroll:hover {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0a0d14] text-white font-sans antialiased">
+
+    <!-- HEADER / NAV (Transparente) -->
+    <header class="absolute top-0 left-0 right-0 z-40 bg-transparent border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+            
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
+            </a>
+
+            <button id="open-menu-btn" aria-label="Abrir Menú" class="text-white hover:text-slate-300 p-2 focus:outline-none transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- MENÚ OVERLAY FULLSCREEN -->
+    <div id="full-menu" class="fixed inset-0 z-50 bg-[#0a0d14]/95 backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-12 transition-all duration-300">
+        
+        <div class="flex justify-between items-center max-w-7xl mx-auto w-full">
+            <img src="./src/logo03.png" alt="FEMS PERU" class="h-8 w-auto opacity-80">
+            
+            <button id="close-menu-btn" aria-label="Cerrar Menú" class="text-slate-400 hover:text-white transition-colors p-2 focus:outline-none">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="max-w-3xl mx-auto w-full my-auto py-8">
+            <ul class="space-y-6 text-center sm:text-left font-bold tracking-wider">
+                
+                <li>
+                    <a href="index.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase">INICIO</a>
+                </li>
+
+                <li class="space-y-3">
+                    <button id="toggle-services-btn" class="w-full text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase flex items-center justify-center sm:justify-start gap-3 focus:outline-none">
+                        <span>SERVICIO</span>
+                        <svg id="arrow-icon" class="w-6 h-6 transform transition-transform duration-200 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    
+                    <ul id="services-submenu" class="hidden pl-0 sm:pl-6 space-y-2 border-l-0 sm:border-l-2 border-emerald-500/30 pt-2 font-medium">
+                        <li>
+                            <a href="software.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • SOFTWARE
+                            </a>
+                        </li>
+                        <li>
+                            <a href="hosting.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • HOSTING Y DOMINIO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="seguridad.html" class="text-lg sm:text-xl text-slate-300 hover:text-emerald-400 transition-colors uppercase block py-1">
+                                • SEGURIDAD
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="hardware.html" class="text-2xl sm:text-4xl text-emerald-400 hover:text-emerald-300 transition-colors uppercase block">HARDWARE</a>
+                </li>
+
+                <li>
+                    <a href="nosotros.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">NOSOTROS</a>
+                </li>
+
+                <li>
+                    <a href="contacto.html" class="text-2xl sm:text-4xl hover:text-emerald-400 transition-colors uppercase block">CONTACTO</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="max-w-7xl mx-auto w-full text-center sm:text-left text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-slate-900 pt-6">
+            <p>© FEMS PERU — Soluciones Tecnológicas</p>
+            <p class="text-emerald-400 font-medium">contacto@femsperu.com</p>
+        </div>
+
+    </div>
+
+    <!-- BANNER PRINCIPAL (HERO DE HARDWARE) -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-[#0A0D14]">
+        
+        <!-- Imagen de Fondo y Overlay -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="./src/banner05.jpg" alt="FEMS PERU Hardware" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0a0d14] via-[#0a0d14]/90 to-[#0a0d14]/70"></div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-12 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                
+                <!-- Columna Texto Hero -->
+                <div class="lg:col-span-7 text-left">
+                    <p class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase mb-4">
+                        Equipamiento TI y Servidores
+                    </p>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-[1.12] tracking-tight mb-6">
+                        Infraestructura Tecnológica y <span class="text-green-400">Hardware Corporativo</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-xl">
+                        Suministramos, configuramos y mantenemos equipos de cómputo, servidores dedicados, laptops corporativas y equipamiento de red para tu empresa.
+                    </p>
+
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-wrap items-center gap-4 mb-12">
+                        <a href="https://wa.me/51900000000" target="_blank" 
+                        class="bg-white hover:bg-slate-950 text-slate-950 hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-transparent hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                            Solicitar Cotización
+                        </a>    
+                        <a href="#soluciones" class="bg-slate-900/80 text-light hover:text-emerald-400 font-bold px-7 py-3.5 rounded-md border border-1 hover:border-emerald-400 transition-all duration-300 text-sm shadow-md hover:shadow-[0_0_25px_rgba(52,211,153,0.5)]">
+                            Ver Equipamiento
+                        </a>
+                    </div>
+
+                    <!-- SCROLL HORIZONTAL INFINITO DE MARCAS DE HARDWARE (DENTRO DE LA COLUMNA IGUAL A INDEX) -->
+                    <div class="pt-6 border-t border-slate-800/80 max-w-2xl">
+                        <p class="text-[11px] font-mono font-semibold tracking-widest text-slate-400 uppercase mb-5">
+                            MARCAS Y FABRICANTES CON LOS QUE TRABAJAMOS
+                        </p>
+
+                        <!-- Contenedor con degradado difuminado a los bordes -->
+                        <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_40px,_black_calc(100%-40px),transparent_100%)]">
+                            
+                            <!-- Track Continuo (Fila 1) -->
+                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10">
+                                
+                                <!-- HP -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/hp.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HP">
+                                    <span class="text-sm font-bold font-mono">HP</span>
+                                </div>
+
+                                <!-- Lenovo -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/lenovo.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Lenovo">
+                                    <span class="text-sm font-bold font-mono">Lenovo</span>
+                                </div>
+
+                                <!-- Dell -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/dell.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Dell">
+                                    <span class="text-sm font-bold font-mono">Dell</span>
+                                </div>
+
+                                <!-- Asus -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/asus.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Asus">
+                                    <span class="text-sm font-bold font-mono">Asus</span>
+                                </div>
+
+                                <!-- TP-Link -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tplink.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="TP-Link">
+                                    <span class="text-sm font-bold font-mono">TP-Link</span>
+                                </div>
+
+                                <!-- Kingston -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/kingstontechnology.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Kingston">
+                                    <span class="text-sm font-bold font-mono">Kingston</span>
+                                </div>
+
+                                <!-- Intel -->
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/intel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Intel">
+                                    <span class="text-sm font-bold font-mono">Intel</span>
+                                </div>
+
+                            </div>
+
+                            <!-- DUPLICADO EXACTO (Para el bucle continuo) -->
+                            <div class="flex items-center justify-start gap-10 animate-infinite-scroll shrink-0 pr-10" aria-hidden="true">
+                                
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/hp.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="HP">
+                                    <span class="text-sm font-bold font-mono">HP</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/lenovo.svg" class="w-8 h-8 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Lenovo">
+                                    <span class="text-sm font-bold font-mono">Lenovo</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/dell.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Dell">
+                                    <span class="text-sm font-bold font-mono">Dell</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/asus.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Asus">
+                                    <span class="text-sm font-bold font-mono">Asus</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tplink.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="TP-Link">
+                                    <span class="text-sm font-bold font-mono">TP-Link</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cisco.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Cisco">
+                                    <span class="text-sm font-bold font-mono">Cisco</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/kingstontechnology.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Kingston">
+                                    <span class="text-sm font-bold font-mono">Kingston</span>
+                                </div>
+
+                                <div class="flex items-center gap-2.5 text-slate-300 hover:text-emerald-400 transition-colors group">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/intel.svg" class="w-7 h-7 invert opacity-80 group-hover:opacity-100 transition-opacity" alt="Intel">
+                                    <span class="text-sm font-bold font-mono">Intel</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="soluciones" class="relative bg-white text-slate-900 pb-20 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- COLUMNA IZQUIERDA: Soluciones de Hardware (Venta y Suministro) -->
+            <div class="lg:col-span-7 pt-16">
+                
+                <div class="mb-12">
+                    <p class="text-xs font-bold tracking-widest text-emerald-600 uppercase mb-2">
+                        Venta y Suministro Tecnológico
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Equipamiento y Venta de Hardware TI
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Cómputo Profesional</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Venta de laptops corporativas, estaciones de trabajo y PC ensambladas con componentes garantizados.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Suministro de Servidores</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Venta de servidores y discos de almacenamiento NAS/SSD/HDD.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.757 8.929a16 16 0 0122.486 0"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Venta de Equipos de Red</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Comercialización de switches, routers corporativos, access points y suministros de conectividad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Mantenimiento de PC</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Servicio técnico preventivo, diagnóstico de fallas y repotenciación de computadoras de escritorio y laptops.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: Pestaña Verde Delgada + Formulario Compacto -->
+            <div class="lg:col-span-5 relative z-30 lg:-mt-14">
+                
+                <div class="shadow-2xl rounded-2xl overflow-hidden border border-slate-100 bg-white">
+                    
+                    <div class="bg-emerald-500 text-slate-950 px-6 py-4 flex items-center justify-between" style="padding-bottom: 4%;">
+                        <span class="text-sm font-extrabold uppercase tracking-wider">Cotizar Equipamiento TI</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+
+                    <form action="#" method="POST" class="p-6 space-y-3.5">
+                        <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para cotizar los productos o repuestos informáticos que necesitas.</p>
+                        
+                        <div>
+                            <input type="text" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                        </div>
+
+                        <div>
+                            <input type="text" required placeholder="Correo o WhatsApp (+51...)" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                        </div>
+
+                        <div>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <option value="" disabled selected>Producto o servicio de interés</option>
+                                <option value="laptops">Compra de Laptops / PC Corporativas</option>
+                                <option value="servidores">Compra de Servidores / Discos NAS</option>
+                                <option value="redes">Equipos de Red (Switches / Routers)</option>
+                                <option value="mantenimiento">Mantenimiento de Cómputo</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <textarea rows="2" placeholder="Detalle del producto o cantidad que requieres..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
+                            Enviar Solicitud
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-[#0A0D14] text-slate-400 text-sm border-t border-slate-800/80 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <a href="index.html" class="inline-block">
+                        <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
+                    </a>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+                        FEMS PERU — Empresa especializada en ingeniería de software a medida, desarrollo web corporativo, servidores cloud y sistemas de seguridad TI para negocios en el Perú.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://wa.me/51900000000" target="_blank" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="mailto:contacto@femsperu.com" aria-label="Email" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Empresa</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-emerald-400 transition-colors">Inicio</a></li>
+                        <li><a href="nosotros.html" class="hover:text-emerald-400 transition-colors">Nosotros</a></li>
+                        <li><a href="index.html#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a></li>
+                        <li><a href="hardware.html" class="hover:text-emerald-400 transition-colors">Hardware</a></li>
+                        <li><a href="contacto.html" class="hover:text-emerald-400 transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Soluciones</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Software a Medida</a></li>
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Desarrollo Web & ERP</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Hosting & Servidores</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Correos Corporativos</a></li>
+                        <li><a href="seguridad.html" class="hover:text-emerald-400 transition-colors">Seguridad & CCTV</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Atención y Sede</h4>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>Lima, Perú</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <a href="mailto:contacto@femsperu.com" class="hover:text-emerald-400 transition-colors">contacto@femsperu.com</a>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span>Lun - Vie: 8:30 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© FEMS PERU. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Políticas de Privacidad</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Términos del Servicio</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- SCRIPT DEL MENÚ HAMBURGUESA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const fullMenu = document.getElementById('full-menu');
+            
+            const toggleServicesBtn = document.getElementById('toggle-services-btn');
+            const servicesSubmenu = document.getElementById('services-submenu');
+            const arrowIcon = document.getElementById('arrow-icon');
+
+            if (openMenuBtn && fullMenu) {
+                openMenuBtn.addEventListener('click', () => {
+                    fullMenu.classList.remove('hidden');
+                    fullMenu.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (closeMenuBtn && fullMenu) {
+                closeMenuBtn.addEventListener('click', () => {
+                    fullMenu.classList.add('hidden');
+                    fullMenu.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            if (toggleServicesBtn && servicesSubmenu && arrowIcon) {
+                toggleServicesBtn.addEventListener('click', () => {
+                    servicesSubmenu.classList.toggle('hidden');
+                    arrowIcon.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
