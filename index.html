@@ -514,52 +514,42 @@
                             </svg>
                         </div>
 
-                        <!-- Formulario Compacto y Limpio -->
-                        <form action="#" method="POST" class="p-6 space-y-3.5">
-                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de
-                                tus sistemas o web.</p>
-
+                        <form id="lead-form" action="https://formspree.io/f/TU_FORM_ID" method="POST" class="p-6 space-y-3.5">
+                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de tus sistemas o web.</p>
+                            
                             <div>
-                                <input type="text" required placeholder="Nombre completo"
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <input type="text" name="nombre" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                             </div>
 
                             <div>
-                                <input type="text" required placeholder="WhatsApp"
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
-                            </div>
-                            <div>
-                                <input type="email" required placeholder="Correo "
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <input type="text" name="whatsapp" required placeholder="WhatsApp" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                             </div>
 
                             <div>
-                                <select
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                <input type="email" name="email" required placeholder="Correo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
+
+                            <div>
+                                <select name="servicio" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
                                     <option value="" disabled selected>Servicio de interés</option>
-                                    <option value="software">Software a Medida</option>
-                                    <option value="web">Página Web Corporativa</option>
-                                    <option value="hosting">Servidores / Hosting</option>
-                                    <option value="seguridad">Seguridad y Cámaras CCTV</option>
+                                    <option value="Software a Medida">Software a Medida</option>
+                                    <option value="Desarrollo Web">Desarrollo Web</option>
+                                    <option value="Hosting y Dominios">Hosting y Dominios</option>
+                                    <option value="Seguridad y CCTV">Seguridad y CCTV</option>
                                 </select>
                             </div>
 
                             <div>
-                                <textarea rows="2" placeholder="Detalle breve de tu requerimiento..."
-                                    class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
+                                <textarea name="mensaje" rows="2" placeholder="Detalle breve de tu requerimiento..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
                             </div>
-
-                            <button type="submit"
-                                class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
+                            <button type="submit" id="submit-btn" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
                                 Enviar Solicitud
                             </button>
-
+                            <!-- Mensaje de confirmación -->
+                            <p id="form-status" class="text-xs text-center hidden font-semibold mt-2"></p>
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -1051,6 +1041,37 @@
             const toggleServicesBtn = document.getElementById('toggle-services-btn');
             const servicesSubmenu = document.getElementById('services-submenu');
             const arrowIcon = document.getElementById('arrow-icon');
+
+            const form = document.getElementById('lead-form');
+            const status = document.getElementById('form-status');
+            const btn = document.getElementById('submit-btn');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.innerText = 'ENVIANDO...';
+
+                const data = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    status.classList.remove('hidden', 'text-red-500');
+                    status.classList.add('text-emerald-600');
+                    status.innerText = '¡Solicitud enviada con éxito! Te contactaremos pronto.';
+                    form.reset();
+                } else {
+                    status.classList.remove('hidden', 'text-emerald-600');
+                    status.classList.add('text-red-500');
+                    status.innerText = 'Hubo un error al enviar. Inténtalo de nuevo.';
+                }
+                
+                btn.disabled = false;
+                btn.innerText = 'ENVIAR SOLICITUD';
+            });
 
             // Abrir el Menú Fullscreen
             if (openMenuBtn && fullMenu) {
