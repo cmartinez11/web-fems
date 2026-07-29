@@ -154,7 +154,7 @@
 
         <div class="max-w-7xl mx-auto w-full text-center sm:text-left text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2 border-t border-slate-900 pt-6">
             <p>© FEMS PERU — Soluciones Tecnológicas</p>
-            <p class="text-emerald-400 font-medium">contacto@femsperu.com</p>
+            <p class="text-emerald-400 font-medium">ventas@femsperu.com</p>
         </div>
 
     </div>
@@ -384,36 +384,56 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
                     </div>
 
-                    <form action="#" method="POST" class="p-6 space-y-3.5">
-                        <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para cotizar los productos o repuestos informáticos que necesitas.</p>
-                        
-                        <div>
-                            <input type="text" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
-                        </div>
+                    <form id="lead-form" action="https://formsubmit.co/alex95svr@gmail.com" method="POST" class="p-6 space-y-3.5">
+                            <p class="text-xs text-slate-500 mb-2">Déjanos tus datos para agendar una presentación de tus sistemas o web.</p>
+                            
+                            <!-- CONFIGURACIONES DE FORMSUBMIT -->
+                            <!-- Evita SPAM con Honeypot oculto -->
+                            <input type="text" name="_honey" class="hidden">
+                            
+                            <!-- Desactiva la redirección a la página de FormSubmit (Para procesarlo con JS) -->
+                            <input type="hidden" name="_captcha" value="false">
+                            
+                            <!-- Asunto del correo que recibirás -->
+                            <input type="hidden" name="_subject" value="Nuevo Lead de Cotización - FEMS PERU">
+                            
+                            <!-- Formato del correo recibido (table / box / plain) -->
+                            <input type="hidden" name="_template" value="table">
 
-                        <div>
-                            <input type="text" required placeholder="Correo o WhatsApp (+51...)" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
-                        </div>
+                            <!-- CAMPOS DE TU FORMULARIO -->
+                            <div>
+                                <input type="text" name="nombre" required placeholder="Nombre completo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
 
-                        <div>
-                            <select class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
-                                <option value="" disabled selected>Producto o servicio de interés</option>
-                                <option value="laptops">Compra de Laptops / PC Corporativas</option>
-                                <option value="servidores">Compra de Servidores / Discos NAS</option>
-                                <option value="redes">Equipos de Red (Switches / Routers)</option>
-                                <option value="mantenimiento">Mantenimiento de Cómputo</option>
-                            </select>
-                        </div>
+                            <div>
+                                <input type="text" name="whatsapp" required placeholder="WhatsApp" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
 
-                        <div>
-                            <textarea rows="2" placeholder="Detalle del producto o cantidad que requieres..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
-                        </div>
+                            <div>
+                                <input type="email" name="email" required placeholder="Correo" class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                            </div>
 
-                        <button type="submit" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md">
-                            Enviar Solicitud
-                        </button>
+                            <div>
+                                <select name="servicio" required class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors">
+                                    <option value="" disabled selected>Servicio de interés</option>
+                                    <option value="Software a Medida">Software a Medida</option>
+                                    <option value="Desarrollo Web">Desarrollo Web</option>
+                                    <option value="Hosting y Dominios">Hosting y Dominios</option>
+                                    <option value="Seguridad y CCTV">Seguridad y CCTV</option>
+                                </select>
+                            </div>
 
-                    </form>
+                            <div>
+                                <textarea name="mensaje" rows="2" placeholder="Detalle breve de tu requerimiento..." class="w-full bg-slate-50 border border-slate-200 rounded-md px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="w-full bg-slate-950 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-3 rounded-md text-xs transition-all shadow-md flex items-center justify-center gap-2">
+                                <span>Enviar Solicitud</span>
+                            </button>
+
+                            <!-- Mensaje de confirmación -->
+                            <p id="form-status" class="text-xs text-center hidden font-semibold mt-2"></p>
+                        </form>
 
                 </div>
 
@@ -426,71 +446,110 @@
     <!-- FOOTER CORPORATIVO -->
     <footer class="bg-[#0A0D14] text-slate-400 text-sm border-t border-slate-800/80 pt-16 pb-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            
+
+            <!-- PARTE SUPERIOR: 4 Columnas principales -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
-                
+
+                <!-- Columna 1: Branding y Descripción (Ocupa 2 espacios en escritorio) -->
                 <div class="lg:col-span-2 space-y-4">
                     <a href="index.html" class="inline-block">
                         <img src="./src/logo03.png" alt="FEMS PERU" class="h-9 w-auto object-contain">
                     </a>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-                        FEMS PERU — Empresa especializada en ingeniería de software a medida, desarrollo web corporativo, servidores cloud y sistemas de seguridad TI para negocios en el Perú.
+                        FEMS PERU — Empresa especializada en ingeniería de software a medida, desarrollo web
+                        corporativo, servidores cloud y sistemas de seguridad TI para negocios en el Perú.
                     </p>
+                    <!-- Redes Sociales / Contacto Rápido -->
                     <div class="flex items-center gap-3 pt-2">
-                        <a href="https://wa.me/51940804586" target="_blank" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        <a href="https://wa.me/51940804586" target="_blank" aria-label="WhatsApp"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+                            </svg>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
                         </a>
-                        <a href="mailto:contacto@femsperu.com" aria-label="Email" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <a href="mailto:ventas@femsperu.com" aria-label="Email"
+                            class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 text-slate-300 hover:text-emerald-400 flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Columna 2: Navegación -->
                 <div>
                     <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Empresa</h4>
                     <ul class="space-y-2.5 text-xs">
                         <li><a href="index.html" class="hover:text-emerald-400 transition-colors">Inicio</a></li>
                         <li><a href="nosotros.html" class="hover:text-emerald-400 transition-colors">Nosotros</a></li>
-                        <li><a href="index.html#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a></li>
+                        <li><a href="#servicios" class="hover:text-emerald-400 transition-colors">Servicios</a></li>
                         <li><a href="hardware.html" class="hover:text-emerald-400 transition-colors">Hardware</a></li>
                         <li><a href="contacto.html" class="hover:text-emerald-400 transition-colors">Contacto</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 3: Servicios -->
                 <div>
                     <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Soluciones</h4>
                     <ul class="space-y-2.5 text-xs">
-                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Software a Medida</a></li>
-                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Desarrollo Web & ERP</a></li>
-                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Hosting & Servidores</a></li>
-                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Correos Corporativos</a></li>
-                        <li><a href="seguridad.html" class="hover:text-emerald-400 transition-colors">Seguridad & CCTV</a></li>
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Software a
+                                Medida</a></li>
+                        <li><a href="software.html" class="hover:text-emerald-400 transition-colors">Desarrollo Web</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Hosting y
+                                Servidores</a></li>
+                        <li><a href="hosting.html" class="hover:text-emerald-400 transition-colors">Correos
+                                Corporativos</a></li>
+                        <li><a href="seguridad.html" class="hover:text-emerald-400 transition-colors">Seguridad y
+                                CCTV</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 4: Contacto Operativo -->
                 <div>
-                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Atención y Sede</h4>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Atención & Sede</h4>
                     <ul class="space-y-3 text-xs">
                         <li class="flex items-start gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
                             <span>Lima, Perú</span>
                         </li>
                         <li class="flex items-center gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:contacto@femsperu.com" class="hover:text-emerald-400 transition-colors">contacto@femsperu.com</a>
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:ventas@femsperu.com"
+                                class="hover:text-emerald-400 transition-colors">ventas@femsperu.com</a>
                         </li>
                         <li class="flex items-center gap-2.5">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>Lun - Vie: 8:30 AM - 6:00 PM</span>
+                            <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+                            </svg>
+                            <a href="https://wa.me/51940804586"
+                                class="hover:text-emerald-400 transition-colors">+51 940 804 586</a>
                         </li>
                     </ul>
                 </div>
 
             </div>
 
+            <!-- PARTE INFERIOR: Derechos de autor y Políticas -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                 <p>© FEMS PERU. Todos los derechos reservados.</p>
                 <div class="flex items-center gap-6">
@@ -501,6 +560,19 @@
 
         </div>
     </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP (OFICIAL Y LIMPIO) -->
+    <a href="https://wa.me/51940804586?text=Hola%20FEMS%20PERU,%20deseo%20m%C3%A1s%20informaci%C3%B3n" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white w-14 h-14 rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(37,211,102,0.6)] hover:scale-110 transition-all duration-300 flex items-center justify-center">
+        
+        <!-- Vector SVG Oficial de WhatsApp -->
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
+            <path d="M16 2a13 13 0 0 0-11 20l-2 7 7-2a13 13 0 1 0 6-25zm0 24a11 11 0 0 1-5.6-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.5A11 11 0 1 1 16 26zm6-8c-.3-.2-1.9-1-2.2-1.1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6a.5.5 0 0 0 0-.5c-.1-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4 14.5 14.5 0 0 0 5.6 5c.8.3 1.4.5 1.9.7a4.6 4.6 0 0 0 2.1.1 3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.5c-.2-.1-.5-.2-.8-.4z"/>
+        </svg>
+    </a>
 
     <!-- SCRIPT DEL MENÚ HAMBURGUESA -->
     <script>
