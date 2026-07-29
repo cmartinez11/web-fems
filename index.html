@@ -4,24 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEMS PERU | Desarrollo de Software y Web</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="robots" content="index, follow">
+    
+    <!-- METATAGS SEO PRINCIPALES -->
+    <title>FEMS PERU | Desarrollo de Software a Medida, Web y Soluciones TI en Lima</title>
+    <meta name="description" content="Empresa especializada en desarrollo de software a medida, sistemas, páginas web corporativas, hosting y equipamiento TI para empresas en el Perú. Cotiza hoy.">
+    <meta name="keywords" content="desarrollo de software lima, sistemas a medida peru, desarrollo web corporativo, hosting empresarial peru, venta de laptops corporativas, fems peru">
+    <link rel="canonical" href="https://femsperu.com/">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/jpeg" href="./src/favi-icon-fems.jpg" sizes="32x32">
+
+    <!-- OPEN GRAPH (Para WhatsApp / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://femsperu.com/">
+    <meta property="og:title" content="FEMS PERU | Soluciones Tecnológicas e Ingeniería de Software">
+    <meta property="og:description" content="Plataformas digitales y sistemas informáticos diseñados para automatizar operaciones y escalar ventas en empresas del Perú.">
+    <meta property="og:image" content="https://femsperu.com/src/banner01.jpg">
 
     <!-- FUENTE CORPORATIVA REAL: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- SCHEMA.ORG (SEO TÉCNICO ESTRUCTURADO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ITStore",
+      "name": "FEMS PERU",
+      "image": "https://femsperu.com/src/logo03.png",
+      "@id": "https://femsperu.com",
+      "url": "https://femsperu.com",
+      "telephone": "+51940804586",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lima",
+        "addressLocality": "Lima",
+        "addressRegion": "Lima",
+        "addressCountry": "PE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -12.046374,
+        "longitude": -77.042793
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://linkedin.com",
+        "https://wa.me/51940804586"
+      ],
+      "knowsAbout": [
+        "Desarrollo de Software a Medida",
+        "Sistemas de Gestión Empresarial",
+        "Desarrollo Web Corporativo",
+        "Hosting y Servidores Cloud",
+        "Venta de Hardware TI"
+      ]
+    }
+    </script>
 
     <style>
         @keyframes infinite-scroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         .animate-infinite-scroll {
@@ -30,7 +85,6 @@
 
         .animate-infinite-scroll:hover {
             animation-play-state: paused;
-            /* Se pausa suavemente cuando el usuario pasa el mouse */
         }
     </style>
 
